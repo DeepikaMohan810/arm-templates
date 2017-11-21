@@ -12,7 +12,8 @@
             "location": "[resourceGroup().location]",
             "type": "Microsoft.Network/virtualNetworks",
             "tags": {
-                "Testing": "VSTS"
+                "Testing": "VSTS",
+				"Development": "ARM"
             },
             "properties": {
                 "mode": "Complete",
