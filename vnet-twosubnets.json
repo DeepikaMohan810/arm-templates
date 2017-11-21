@@ -12,7 +12,6 @@
             "location": "[resourceGroup().location]",
             "type": "Microsoft.Network/virtualNetworks",
             "tags": {
-                "Development": "CFT",
                 "Testing": "VSTS"
             },
             "properties": {
