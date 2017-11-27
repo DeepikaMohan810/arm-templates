@@ -42,31 +42,6 @@
                     }
                 ]
             }
-        },
-        {
-            "name": "[parameters('BranchNicName')]",
-            "type": "Microsoft.Network/networkInterfaces",
-            "location": "[resourceGroup().location]",
-            "apiVersion": "2016-03-30",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks', 'BranchVnet')]"
-            ],
-            "tags": {
-                "displayName": "BranchNic"
-            },
-            "properties": {
-                "ipConfigurations": [
-                    {
-                        "name": "ipconfig1",
-                        "properties": {
-                            "privateIPAllocationMethod": "Dynamic",
-                            "subnet": {
-                                "id": "[variables('BranchNicSubnetRef')]"
-                            }
-                        }
-                    }
-                ]
-            }
         }
     ],
   "outputs": {}
