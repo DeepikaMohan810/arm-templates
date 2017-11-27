@@ -1,0 +1,92 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "BranchNicName": {
+            "type": "string",
+            "minLength": 1
+        }
+    },
+    "variables": {
+        "BranchVnetPrefix": "10.0.0.0/16",
+        "BranchVnetSubnet1Name": "Subnet-1",
+        "BranchVnetSubnet1Prefix": "10.0.3.0/24",
+        "BranchVnetSubnet2Name": "Subnet-2",
+        "BranchVnetSubnet2Prefix": "10.0.4.0/24",
+        "BranchNicVnetID": "[resourceId('Microsoft.Network/virtualNetworks','BranchVnet')]",
+        "BranchNicSubnetRef": "[concat(variables('BranchNicVnetID'), '/subnets/', variables('BranchVnetSubnet1Name'))]",
+        "BranchPipName": "BranchPip"
+    },
+    "resources": [
+        {
+            "name": "BranchVnet",
+            "type": "Microsoft.Network/virtualNetworks",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2016-03-30",
+            "dependsOn": [],
+            "tags": {
+                "displayName": "BranchVnet"
+            },
+            "properties": {
+                "mode" : "Complete",
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[variables('BranchVnetPrefix')]"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "[variables('BranchVnetSubnet1Name')]",
+                        "properties": {
+                            "addressPrefix": "[variables('BranchVnetSubnet1Prefix')]"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "[parameters('BranchNicName')]",
+            "type": "Microsoft.Network/networkInterfaces",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2016-03-30",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', 'BranchVnet')]",
+                "[resourceId('Microsoft.Network/publicIPAddresses', variables('BranchPipName'))]"
+            ],
+            "tags": {
+                "displayName": "BranchNic"
+            },
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[variables('BranchNicSubnetRef')]"
+                            },
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('BranchPipName'))]"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "[variables('BranchPipName')]",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2016-03-30",
+            "dependsOn": [ ],
+            "tags": {
+                "displayName": "BranchPip"
+            },
+            "properties": {
+                "publicIPAllocationMethod": "Dynamic"
+
+            }
+        }
+    ],
+  "outputs": {}
+}
