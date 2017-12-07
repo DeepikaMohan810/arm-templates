@@ -1,2 +1,2 @@
-﻿New-AzureResourceGroup -Name DeepikaTestResourceGroup -Location "East US"
-New-AzureResourceGroupDeployment -Name DeepikaTestResourceGroupDeployment -ResourceGroupName DeepikaTestResourceGroup -TemplateUri https://github.com/DeepikaMohan810/arm-templates/blob/arm-stage/nic.json 
+﻿New-AzureRmResourceGroup -Name DeepikaTestResourceGroup -Location "East US"
+New-AzureRmResourceGroupDeployment -Name DeepikaTestResourceGroupDeployment -ResourceGroupName DeepikaTestResourceGroup -TemplateUri https://github.com/DeepikaMohan810/arm-templates/blob/arm-stage/nic.json 
