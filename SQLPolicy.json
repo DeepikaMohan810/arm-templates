@@ -1,0 +1,29 @@
+{
+  "properties": {
+    "displayName": "Require SQL Server version 12.0",
+    "policyType": "BuiltIn",
+    "description": "This policy ensures all SQL servers use version 12.0",
+    "policyRule": {
+        "if": {
+          "allOf": [
+            {
+              "field": "type",
+              "equals": "Microsoft.SQL/servers"
+            },
+            {
+              "not": {
+                "field": "Microsoft.SQL/servers/version",
+                "equals": "12.0"
+              }
+            }
+          ]
+        },
+        "then": {
+          "effect": "Deny"
+        }
+      }
+  },
+  "id": "/providers/Microsoft.Authorization/policyDefinitions/Require SQL Server version 12.0",
+  "type": "Microsoft.Authorization/policyDefinitions",
+  "name": "Require SQL Server version 12.0"
+}
