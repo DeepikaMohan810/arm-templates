@@ -2,15 +2,15 @@
     "tagName" : {
         "type" : "string",
         "metadata":{
-            "displayName" : "TagName",
-            "defaultValue" : "UserName"
+            "displayName" : "TagName"
+            
         }
     },
     "tagValue" :{
         "type" : "string",
         "metadata" :{
-            "displayName" :"TagValue",
-            "defaultValue":"Deepika"
+            "displayName" :"TagValue"
+            
         }
 
     }
