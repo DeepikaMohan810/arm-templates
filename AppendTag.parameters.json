@@ -3,14 +3,14 @@
         "type" : "string",
         "metadata":{
             "displayName" : "TagName",
-            "value" : "UserName"
+            "defaultValue" : "UserName"
         }
     },
     "tagValue" :{
         "type" : "string",
         "metadata" :{
             "displayName" :"TagValue",
-            "value":"Deepika"
+            "defaultValue":"Deepika"
         }
 
     }
