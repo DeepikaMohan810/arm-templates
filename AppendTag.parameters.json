@@ -1,0 +1,15 @@
+{
+    "tagName" : {
+        "type" : "string",
+        "metadata":{
+            "displayName" : "TagName"
+        }
+    },
+    "tagValue" :{
+        "type" : "string",
+        "metadata" :{
+            "displayName" :"TagValue"
+        }
+
+    }
+}
