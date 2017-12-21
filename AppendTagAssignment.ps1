@@ -1,3 +1,3 @@
-﻿$ResourceGroup = Get-AzureRmResourceGroup -Name "DeepikaTestRG" 
+﻿$ResourceGroup = Get-AzureRmResourceGroup -Name "DeepikaTest-RG" 
 $Policy = New-AzureRmPolicyDefinition -Name "AppendTag" -DisplayName "Append Tags to Resources in RG" -Description "Append Tags in RG" -Policy "https://raw.githubusercontent.com/DeepikaMohan810/arm-templates/arm-stage/AppendTag.rules.json" -Parameter "https://raw.githubusercontent.com/DeepikaMohan810/arm-templates/arm-stage/AppendTag.parameters.json"
 New-AzureRmPolicyAssignment -Name "AppendTag Assignment" -DisplayName "Assign Tags to Resources" -Scope $ResourceGroup.ResourceId -tagName "UserName" -tagValue "Deepika" -PolicyDefinition $Policy
