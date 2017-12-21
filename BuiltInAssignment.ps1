@@ -1,3 +1,3 @@
 ﻿$scope = "/subscriptions/da9668c3-7699-4079-83d5-1a3f66b2d635"
-$policy = Get-AzureRmPolicyDefinition -ResourceId "/providers/Microsoft.Authorization/policyDefinitions/c9c29499-c1d1-4195-99bd-2ec9e3a9dc89"
-New-AzureRmPolicyAssignment -Name "Diagnostics Assignment to NSG" -DisplayName "Enable Diagnostics to all NSG" -Scope $scope -PolicyDefinition $policy 
+$policy = Get-AzureRmPolicyDefinition -ResourceId "/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d06a78e20-9358-41c9-923c-fb736d382a4d"
+New-AzureRmPolicyAssignment -Name "Audit Managed Disks" -DisplayName "Create VM using ManagedDisks" -Scope $scope -PolicyDefinition $policy 
