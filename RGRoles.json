@@ -1,0 +1,18 @@
+{
+  "Name": "ResourceGroup Reader",
+  "IsCustom": true,
+  "Description": "Can read all Resources and Resource Groups in a Subscription.",
+  "Actions": [
+    "Microsoft.Resources/subscriptions/resourcegroups/resources/read",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.Resources/subscriptions/resources/read",
+    "Microsoft.Resources/subscriptions/locations/read"
+  ],
+  "NotActions": [
+    "Microsoft.Resources/tenants/read"
+  ],
+  "AssignableScopes": [
+    "/subscriptions/da9668c3-7699-4079-83d5-1a3f66b2d635/deepikaRG"
+
+  ]
+}
